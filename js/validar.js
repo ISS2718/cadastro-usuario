@@ -165,7 +165,7 @@ senha.addEventListener('focusout', () => {
             senhaHelp.textContent = "A senha contem caracteres especiais não permitidos.";
             senhaHelp.style.color = "red";
         }
-    } else if(senhaTrimado.includes(nome_cortado) || senhaTrimado.includes(nome_cortado.toLowerCase()) || senhaTrimado.includes(sobreNome_cortado) || senhaTrimado.includes(sobreNome_cortado.toLowerCase())){
+    } else if(senhaTrimado.toLowerCase().includes(nome_cortado.toLowerCase()) || (sobreNome_cortado != undefined && senhaTrimado.toLowerCase().includes(sobreNome_cortado.toLowerCase()))) {
         senhaHelp.textContent = "A Senha não pode conter seu nome ou sobre nome.";
         senhaHelp.style.color = "red";
     } else if(senhaTrimado.includes(ano.value.trim())){
@@ -183,8 +183,8 @@ senha.addEventListener('focusout', () => {
             senhaHelp.textContent = "Senha Forte";
             senhaHelp.style.color = "green";
         } else {
-            senhaHelp.textContent = "";
-            senhaHelp.style.color = "";
+            senhaHelp.textContent = "Não sei o que aconteceu.";
+            senhaHelp.style.color = "purple";
         }
     }
 });
